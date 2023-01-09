@@ -39,9 +39,9 @@ class ApiController extends Controller
         $data = $this->apiRepository->allData();
 
         if($data['status']==false){
-            return response($data,400);
+            return response($data['data'],400);
         }else{
-            return response($data,200);
+            return response($data['data'],200);
         }
 
     }

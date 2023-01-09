@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class HumidityRepositoryImpl implements HumidityRepositoryInterface{
 
-    public function getData()
+    public function getData() : array
     {
 
         try{
@@ -35,7 +35,7 @@ class HumidityRepositoryImpl implements HumidityRepositoryInterface{
 
     }
 
-    public function latestData()
+    public function latestData() : array
     {
         try{
             $query = DB::table('humidities')->orderByDesc('id')->first();
@@ -60,7 +60,7 @@ class HumidityRepositoryImpl implements HumidityRepositoryInterface{
         return $response;
     }
 
-    public function insertData($value)
+    public function insertData($value) : array
     {
         try{
 

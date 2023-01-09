@@ -11,7 +11,7 @@
                             <div class="flex-grow-1">
                                 <p class="mb-0">Lampu A</p>
                                 <h4 class="font-weight-bold">{{strtoupper($lamp)}}</h4>
-                                <p class="mb-0 font-13">Terakhir diupdate pada {{$time}}</p>
+                                <p class="mb-0 font-13">Terakhir diupdate {{\Carbon\Carbon::parse($time)->diffForHumans()}}</p>
                             </div>
                             <div class="widgets-icons bg-gradient-cosmic text-white"><i class='bx bx-sun'></i>
                             </div>
@@ -26,7 +26,7 @@
                             <div class="flex-grow-1">
                                 <p class="mb-0">Lampu B</p>
                                 <h4 class="font-weight-bold">{{strtoupper($lamp)}}</h4>
-                                <p class="text-secondary mb-0 font-13">Terakhir diupdate pada {{$time}}</p>
+                                <p class="text-secondary mb-0 font-13">Terakhir diupdate {{\Carbon\Carbon::parse($time)->diffForHumans()}}</p>
                             </div>
                             <div class="widgets-icons bg-gradient-burning text-white"><i class='bx bx-sun'></i>
                             </div>
@@ -41,7 +41,7 @@
                             <div class="flex-grow-1">
                                 <p class="mb-0">Pompa A</p>
                                 <h4 class="font-weight-bold">{{strtoupper($pump)}}</h4>
-                                <p class="text-secondary mb-0 font-13">Terakhir diupdate pada {{$time}}</p>
+                                <p class="text-secondary mb-0 font-13">Terakhir diupdate {{\Carbon\Carbon::parse($time)->diffForHumans()}}</p>
                             </div>
                             <div class="widgets-icons bg-gradient-lush text-white"><i class='bx bx-cloud-light-rain'></i>
                             </div>
@@ -56,7 +56,7 @@
                             <div class="flex-grow-1">
                                 <p class="mb-0">Pompa B</p>
                                 <h4 class="font-weight-bold">{{strtoupper($pump)}}</h4>
-                                <p class="text-secondary mb-0 font-13">Terakhir diupdate pada {{$time}}</p>
+                                <p class="text-secondary mb-0 font-13">Terakhir diupdate {{\Carbon\Carbon::parse($time)->diffForHumans()}}</p>
                             </div>
                             <div class="widgets-icons bg-gradient-kyoto text-white"><i class='bx bxs-cloud-rain'></i>
                             </div>
@@ -71,7 +71,7 @@
                             <div class="flex-grow-1">
                                 <p class="mb-0">Suhu</p>
                                 <h4 class="font-weight-bold">{{$temperature}}&#8451;</h4>
-                                <p class="text-secondary mb-0 font-13">Terakhir diupdate pada {{$time}}</p>
+                                <p class="text-secondary mb-0 font-13">Terakhir diupdate {{\Carbon\Carbon::parse($time)->diffForHumans()}}</p>
                             </div>
                             <div class="widgets-icons bg-gradient-blues text-white"><i class='bx bxs-thermometer'></i>
                             </div>
@@ -86,7 +86,7 @@
                             <div class="flex-grow-1">
                                 <p class="mb-0">Kelembaban</p>
                                 <h4 class="font-weight-bold">{{$humidity}}% </h4>
-                                <p class="text-secondary mb-0 font-13">Terakhir diupdate pada {{$time}}</p>
+                                <p class="text-secondary mb-0 font-13">Terakhir diupdate{{\Carbon\Carbon::parse($time)->diffForHumans()}}</p>
                             </div>
                             <div class="widgets-icons bg-gradient-moonlit text-white"><i class='bx bx-droplet'></i>
                             </div>
@@ -103,31 +103,14 @@
                     <table id="example2" class="table table-striped table-bordered">
                         <thead>
                         <tr>
-                            <th>No</th>
                             <th>Suhu</th>
                             <th>Nilai Kelembaban</th>
                             <th>Status Lampu</th>
                             <th>Status Pompa</th>
                             <th>Data Dibuat</th>
                             <th>Data Diupdate</th>
-
                         </tr>
                         </thead>
-                        <tbody>
-
-                        @foreach($data as $key => $data)
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$data->temperature}}&#8451;</td>
-                                <td>{{$data->humidity}}&percnt;</td>
-                                <td>{{strtoupper($data->lamp)}}</td>
-                                <td>{{strtoupper($data->pump)}}</td>
-                                <td>{{$data->created_at}}</td>
-                                <td>{{$data->updated_at}}</td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-
                     </table>
                 </div>
             </div>

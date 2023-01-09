@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
 
-    public function findOutputData()
+    public function findOutputData(): int
     {
         $data = DB::table('output_models')->count();
         if($data!=null){
@@ -18,7 +18,7 @@ class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
         }
     }
 
-    public function insertIfDoesntExist()
+    public function insertIfDoesntExist(): bool
     {
         $data = DB::table('output_models')
                         ->insert([
@@ -38,7 +38,7 @@ class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
 
     }
 
-    public function updateLampA($status)
+    public function updateLampA($status): array
     {
         $countData = $this->findOutputData();
 
@@ -89,7 +89,7 @@ class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
 
     }
 
-    public function updateLampB($status)
+    public function updateLampB($status) : array
     {
         $countData = $this->findOutputData();
 
@@ -139,7 +139,7 @@ class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
         }
     }
 
-    public function updatePumpA($status)
+    public function updatePumpA($status) : array
     {
         $countData = $this->findOutputData();
 
@@ -189,7 +189,7 @@ class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
         }
     }
 
-    public function updatePumpB($status)
+    public function updatePumpB($status) : array
     {
         $countData = $this->findOutputData();
 
@@ -239,7 +239,7 @@ class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
         }
     }
 
-    public function latestDataLampA()
+    public function latestDataLampA() : array
     {
         try {
             $query = DB::table('output_models')->orderByDesc('created_at')->first();
@@ -261,7 +261,7 @@ class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
         }
     }
 
-    public function latestDataLampB()
+    public function latestDataLampB() : array
     {
         try {
             $query = DB::table('output_models')->orderByDesc('created_at')->first();
@@ -283,7 +283,7 @@ class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
         }
     }
 
-    public function latestDataPumpA()
+    public function latestDataPumpA() : array
     {
         try {
             $query = DB::table('output_models')->orderByDesc('created_at')->first();
@@ -305,7 +305,7 @@ class OutputRepositoryRepositoryImpl implements OutputRepositoryInterface {
         }
     }
 
-    public function latestDataPumpB()
+    public function latestDataPumpB() : array
     {
         try {
             $query = DB::table('output_models')->first();

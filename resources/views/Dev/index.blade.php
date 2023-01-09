@@ -60,7 +60,7 @@
                             <li><a href="#" onclick="turnOffPump()"><img src="{{asset('dev/images/icon/1.png')}}"><span>Tombol Off Pompa</span></a></li>
                             <li><a href="#" onclick="turnOnLamp()"><img src="{{asset('dev/images/icon/2.png')}}" alt="" title="" /><span>Tombol On Lampu</span></a></li>
                             <li><a href="#" onclick="turnOffLamp()"><img src="{{asset('dev/images/icon/2.png')}}" alt="" title="" /><span>Tombol Off Lampu</span></a></li>
-                            <li><a href="{{route('merge-data')}}"><img src="{{asset('dev/images/icon/3.png')}}" alt="" title="" /><span>Data</span></a></li>
+                            <li><a href="#" onclick="redirectData()"><img src="{{asset('dev/images/icon/3.png')}}" alt="" title="" /><span>Data</span></a></li>
                         </ul>
                     </nav>
 
@@ -203,6 +203,10 @@
                 }
             }
         });
+    }
+
+    function redirectData(){
+        window.location.replace("/merge");
     }
 </script>
 

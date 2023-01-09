@@ -3,6 +3,7 @@
 namespace App\Repositories\Api;
 
 use App\Interfaces\Api\ApiRepositoryInterface;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ApiRepositoryImpl implements ApiRepositoryInterface{
@@ -10,12 +11,7 @@ class ApiRepositoryImpl implements ApiRepositoryInterface{
     public function allData()
     {
        try{
-           $query = DB::table('merge_data')->orderBy('created_at')->chunk(100,function ($data){
-               foreach($data as $datum){
-                    $dataParse = $datum;
-               }
-           });
-
+           $query = DB::table('merge_data')->get();
            if(!$query){
                throw new \Exception("Failed to stream data");
            }else{
@@ -70,7 +66,9 @@ class ApiRepositoryImpl implements ApiRepositoryInterface{
                'temperature' => $data['temperature'],
                'humidity' => $data['humidity'],
                'lamp' => $data['lamp'],
-               'pump' => $data['pump']
+               'pump' => $data['pump'],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
 
             if(!$query){

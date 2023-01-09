@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class TemperatureRepositoryImpl implements TemperatureRepositoryInterface{
 
-    public function getData()
+    public function getData() : array
     {
         try{
             $query = DB::table('temperatures')->limit(1000)->get();
@@ -33,7 +33,7 @@ class TemperatureRepositoryImpl implements TemperatureRepositoryInterface{
         return $response;
     }
 
-    public function latestData()
+    public function latestData() : array
     {
         try{
             $query = DB::table('temperatures')->orderByDesc('id')->first();
@@ -58,7 +58,7 @@ class TemperatureRepositoryImpl implements TemperatureRepositoryInterface{
         return $response;
     }
 
-    public function insertData($value)
+    public function insertData($value) : array
     {
         try{
 
